@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>Login</h2>
-  <form action="{% url 'login' %}">
+  <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{next}}">
     <div class="form-group">
@@ -12,7 +12,7 @@
 
       <div class="form-group">
       <label for="password"><P></P>assword</label>
-      <input type="text" name="password" id="password" required>
+      <input type="password" name="password" id="password" required>
     </div>
     <button type="submit">login</button>
   </form>
