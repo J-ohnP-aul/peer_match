@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main>
+      <h1>Academic Profile Complete</h1>
+      <p>
+          Your academic information has been successfully saved.
+      </p>
+      <hr>
+      <section>
+          <h2>Academic Information</h2>
+          <p>
+              <strong>Registration Number:</strong>
+              {{ profile.reg_no }}
+          </p>
+          <p>
+              <strong>School:</strong>
+              {{ profile.course.school.name }}
+          </p>
+          <p>
+              <strong>Course:</strong>
+              {{ profile.course.name }}
+          </p>
+          <p>
+              <strong>Course Code:</strong>
+              {{ profile.course.code }}
+          </p>
+          <p>
+              <strong>Year Joined:</strong>
+              {{ profile.year_joined }}
+            </p>
+      </section>
+      <hr>
+      <section>
+          <h2>Current Units</h2>
+
+          {% if units %}
+              <ul>
+                  {% for student_unit in units %}
+                      <li>
+                          {{ student_unit.unit.code }}
+                          -
+                          {{ student_unit.unit.name }}
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              <p>No units selected.</p>
+          {% endif %}
+      </section>
+      <hr>
+      <a href="/">
+          Continue to Study Profile
+      </a>
+ </main>
+{% endblock %}

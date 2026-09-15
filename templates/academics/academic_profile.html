@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Academic Profile</h1>
+    <p>Enter your university registration number.</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            Verify Registration Number
+        </button>
+    </form>
+{% endblock %}

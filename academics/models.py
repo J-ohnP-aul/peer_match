@@ -46,3 +46,17 @@ class StudentUnit(models.Model):  # record the units that belong to a particular
   def __str__(self):
       return f"{self.student} - {self.unit}"
     
+class StudentAcademicProfile(models.Model): #who is this student academically
+    student = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="academic_profile"
+    )
+    reg_no = models.CharField(
+        max_length=30,
+        unique=True
+    )
+    course = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="students")
+    year_joined = models.PositiveSmallIntegerField()
+    def __str__(self):
+        return f"{self.student.username} - {self.reg_no}"
